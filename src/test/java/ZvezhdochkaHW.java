@@ -32,11 +32,18 @@ public class ZvezhdochkaHW {
         route3.setStart("Kiel");
         route3.setFinish("Riga");
 
+
         System.out.println(route1.getStart());
         System.out.println(route1.getFinish());
         System.out.println(route1.getDistance());
-        System.out.println();
 
+        System.out.println(route2.getStart());
+        System.out.println(route2.getFinish());
+        System.out.println(route2.getDistance());
+
+        System.out.println(route3.getStart());
+        System.out.println(route3.getFinish());
+        System.out.println(route3.getDistance());
     }
 
 }
