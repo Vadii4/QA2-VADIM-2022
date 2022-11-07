@@ -2,7 +2,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LocatorsPracticeHW {
+public class LocatorsHomeWork {
+
+    // --------------------------------1 Stranica---------------------------------------
 
     private final By LOGO_BTN = By.xpath("logo-cell");
     //div[@class = 'logo-cell']
@@ -35,6 +37,7 @@ public class LocatorsPracticeHW {
     //div[@class = 'col-12']
 
 
+    //------------------------------------------2 stranica--------------------------------------------------
 
     private final By CAR_TYPE_BTN = By.xpath("ar-top-filter-item car-groups-item filtering-event init");
     //div[@class ='car-top-filter-item car-groups-item filtering-event init']
@@ -77,6 +80,15 @@ public class LocatorsPracticeHW {
     private final By CURRENT_CAR_PRICE_LABEL = By.xpath("price-item-price-main");
     //div[@class= 'price-item-price-main']
 
+
+    //----------------------------------------3 STRANICA--------------------------------------
+
+    private final By LOADING_LOGO = By.xpath("lds-ellipsis v2");
+    //div[@class='lds-ellipsis v2']
+    private final By LOADING_TEXT = By.xpath("mt-24 mb-8 text-20 text-bold text-center");
+    //div[@class='mt-24 mb-8 text-20 text-bold text-center']
+    private final By LOADING_SUBTEXT = By.xpath("'mb-32 text-center");
+    //div[@class='mb-32 text-center']
 
     public void openHomePageCheck () {
         System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");

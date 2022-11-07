@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Test;
 
 public class ZvezhdochkaHW1 {
+
+    //------------------------DALSHE NE ZNAJU------------------
     @Test
     public void checkingTransport () {
         Transport carTransport = new Transport();
