@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -14,9 +15,9 @@ public class FirstSeleniumTest {
     //---vnachale lokatori
     private final By ACCEPT_COOKIES_BTN = By.id("onetrust-accept-btn-handler");
     private final By TOP_LOCATION_LINK = By.xpath(".//div[@class = 'tl-box']/a");
-
     private WebDriver browser;
     private WebDriverWait wait;
+
     @Test
     public void openHomePageCheck () {
         String country = "Latvia";
@@ -49,5 +50,9 @@ public class FirstSeleniumTest {
         }
 
         Assertions.assertTrue(isCountryFound, "Country not found!");
+    }
+    @AfterEach
+    public void closeBrowser(){
+        browser.close();
     }
 }
