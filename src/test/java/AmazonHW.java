@@ -13,6 +13,8 @@ public class AmazonHW {
     private final By AMAZON_ACCEPT_COOKIES_BTN = By.id("sp-cc-accept");
     private final By AMAZON_CONTINUE_BTN = By.xpath(".//input[@data-action-type = 'DISMISS']");
     private final By AMAZON_MAIN_MENU_ITEM = By.xpath(".//div[@id = 'nav-xshop']/a");
+
+    private final By AMAZON_SIDE_MAIN_ITEM = By.xpath(".//div[@role = 'treeitem']/a");
     private WebDriver browser;
     private WebDriverWait wait;
     @Test
@@ -20,6 +22,7 @@ public class AmazonHW {
 
         //TEST DATA
         String menuItemToSelect = "Best Sellers";
+        String sideMenuItemToSelect = "Books";
 
 
         System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
@@ -36,16 +39,24 @@ public class AmazonHW {
         browser.findElement(AMAZON_CONTINUE_BTN).click();
 
         openMenuItem(menuItemToSelect);
+        chooseSideMenuItem(sideMenuItemToSelect);
+    }
 
         private void openMenuItem(String menuItemToSelect) {
             List<WebElement> menuItems = browser.findElements(AMAZON_MAIN_MENU_ITEM);
             for (WebElement we: menuItems) {
                 if (we.getText().equals(menuItemToSelect)) {
                     we.click();
-                    break;
                 }
             }
         }
-
+        private void chooseSideMenuItem (String sideMenuItemToSelect) {
+        List<WebElement> sideMenuItems = browser.findElements(AMAZON_SIDE_MAIN_ITEM);
+        for (WebElement we2: sideMenuItems) {
+            if (we2.getText().equals(sideMenuItemToSelect)) {
+                we2.click();
+                break;
+            }
+        }
     }
 }
