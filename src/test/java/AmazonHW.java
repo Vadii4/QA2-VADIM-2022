@@ -47,6 +47,7 @@ public class AmazonHW {
             for (WebElement we: menuItems) {
                 if (we.getText().equals(menuItemToSelect)) {
                     we.click();
+                    break;
                 }
             }
         }
@@ -59,4 +60,5 @@ public class AmazonHW {
             }
         }
     }
+        private void StoreBooksStars
 }
