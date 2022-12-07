@@ -9,11 +9,18 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
+/////////VNACHALE LOCATORI
 public class TicketsTests {
     private final By FROM = By.id("afrom");
     private final By TO = By.id("bfrom");
     private final By GO_BTN = By.xpath(".//span[@class = 'gogogo']");
+
+    private final By FROM_AFTER_GO_BTN = By.xpath(".//span[@class ='bTxt']");
+
+    private final By GET_PRICE_BTN = By.xpath(".//span[contains(@onclick,'setLang')]");
+
 
     private final By FIRST_NAME = By.id("name");
     private final By LAST_NAME = By.id("surname");
@@ -25,9 +32,15 @@ public class TicketsTests {
 
     private WebDriver browser;
     private WebDriverWait wait;
-
+/// OTKRIVAEM SAIT
     @Test
     public void reservationCheck () {
+
+        //TEst data
+
+        String fromAfterGoBtn = "RIX";
+        checkFromText(fromAfterGoBtn);
+
         System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
         browser = new ChromeDriver();
         browser.manage().window().maximize();
@@ -42,13 +55,15 @@ public class TicketsTests {
         browser.findElement(GO_BTN).click();
 
         //peredajom v private void type vnizu
-        type(FIRST_NAME, "First_Name";
+        type(FIRST_NAME, "First_Name");
         type(LAST_NAME, "Last Name");
         type(DISCOUNT, "Discount code");
         type(ADULTS, "3");
         type(CHILDREN, "2");
         type(BAG, "5");
         select(FLIGHT, "13");
+
+        browser.findElement(GET_PRICE_BTN).click();
 
         //proverka
         //equals --chto to s chem to sravnivaem
@@ -64,7 +79,7 @@ public class TicketsTests {
 
         //Assertions.assertTrue(text.startsWith(student.getFirstName()),"Wrong Name");
         //Assertions.assertTrue(secondText.startsWith(student.getFirstName()),"Wrong Name");
-
+        Assertions.assertEquals("RIX", );
     }
         //znachenija peredajutsa sjuda
     private void select(By locator, String value) {
@@ -76,6 +91,13 @@ public class TicketsTests {
     private void type(By locator, String text){
         WebElement input = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         input.clear();
-        input.sendKeys();
+        input.sendKeys(text);
+    }
+    private void checkFromText(String fromAfterGoBtn) {
+        List<WebElement> airportNames = browser.findElements(FROM_AFTER_GO_BTN);
+        for (WebElement we: airportNames) {
+            if (we.getText().equals(fromAfterGoBtn)); {
+            }
+        }
     }
 }
