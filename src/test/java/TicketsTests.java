@@ -17,9 +17,15 @@ public class TicketsTests {
     private final By TO = By.id("bfrom");
     private final By GO_BTN = By.xpath(".//span[@class = 'gogogo']");
 
-    private final By FROM_AFTER_GO_BTN = By.xpath(".//span[@class ='bTxt']");
+    private final By AIRPORT_NAME = By.xpath(".//span[@class ='bTxt']");
 
     private final By GET_PRICE_BTN = By.xpath(".//span[contains(@onclick,'setLang')]");
+
+    private final By BOOK_BTN = By.xpath(".//span[@id= 'book2']");
+
+    private final By SECOND_BOOK_BTN = By.xpath(".//span[@id= 'book3']");
+
+    private final By SEAT_BTN = By.xpath(".//div[@class = 'seat']");
 
 
     private final By FIRST_NAME = By.id("name");
@@ -37,9 +43,9 @@ public class TicketsTests {
     public void reservationCheck () {
 
         //TEst data
+        String selectedAirportFrom = "RIX";
+        String selectedAirportTo = "SFO";
 
-        String fromAfterGoBtn = "RIX";
-        checkFromText(fromAfterGoBtn);
 
         System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
         browser = new ChromeDriver();
@@ -55,15 +61,30 @@ public class TicketsTests {
         browser.findElement(GO_BTN).click();
 
         //peredajom v private void type vnizu
-        type(FIRST_NAME, "First_Name");
-        type(LAST_NAME, "Last Name");
-        type(DISCOUNT, "Discount code");
-        type(ADULTS, "3");
-        type(CHILDREN, "2");
-        type(BAG, "5");
+        type(FIRST_NAME, "Vadim");
+        type(LAST_NAME, "Tarlecky");
+        type(DISCOUNT, "12345");
+        type(ADULTS, "1");
+        type(CHILDREN, "0");
+        type(BAG, "1");
         select(FLIGHT, "13");
 
         browser.findElement(GET_PRICE_BTN).click();
+
+        airportFrom(selectedAirportFrom);
+        airportTo(selectedAirportTo);
+
+        List<WebElement> airports = browser.findElements(AIRPORT_NAME);
+        String selectedAirportFrom = airports.get(1).getText();
+        String selectedAirportTo = airports.get(2).getText();
+
+        Assertions.assertEquals(AIRPORT_NAME, selectedAirportFrom, "same airport");
+        Assertions.assertEquals(AIRPORT_NAME, selectedAirportTo, "same airport");
+
+        browser.findElement(BOOK_BTN).click();
+        wait = new WebDriverWait(browser, Duration.ofSeconds(10));
+        browser.findElement(SEAT_BTN).click();
+        browser.findElement(SECOND_BOOK_BTN).click();
 
         //proverka
         //equals --chto to s chem to sravnivaem
@@ -79,7 +100,6 @@ public class TicketsTests {
 
         //Assertions.assertTrue(text.startsWith(student.getFirstName()),"Wrong Name");
         //Assertions.assertTrue(secondText.startsWith(student.getFirstName()),"Wrong Name");
-        Assertions.assertEquals("RIX", );
     }
         //znachenija peredajutsa sjuda
     private void select(By locator, String value) {
@@ -92,12 +112,5 @@ public class TicketsTests {
         WebElement input = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         input.clear();
         input.sendKeys(text);
-    }
-    private void checkFromText(String fromAfterGoBtn) {
-        List<WebElement> airportNames = browser.findElements(FROM_AFTER_GO_BTN);
-        for (WebElement we: airportNames) {
-            if (we.getText().equals(fromAfterGoBtn)); {
-            }
-        }
     }
 }
