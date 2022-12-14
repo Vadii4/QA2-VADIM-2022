@@ -1,6 +1,10 @@
 package pageobject;
 
+import com.beust.ah.A;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import pageobject.model.Passenger;
 import pageobject.pages.HomePage;
 import pageobject.pages.PassengerInfoPage;
 
@@ -14,17 +18,24 @@ public class TicketsTestsOnPages {
     private BaseFunc baseFunc = new BaseFunc();
     @Test
     public void successfulRegistrationTest () {
+        //posle peremennih s class Passenger, tut mi ih zapolnjaem
+        Passenger passenger = new Passenger("TestName", "TestSurname","CCCCC", 2,
+                1,4,"16-05-2018");
+
         baseFunc.openUrl(URL);
         HomePage homePage = new HomePage(baseFunc);
         homePage.selectAirports(FROM_AIRPORT, TO_AIRPORT);
 
+        //posle vsego
         PassengerInfoPage infoPage = new PassengerInfoPage(baseFunc);
-        //...
+        infoPage.fillInPassengerInfo(passenger);
 
-        //Get List<WebElement> with Name, From Airport, To Airport
-        //                     0                   1         2
-        //.getText() --> String
-        //String fromAirport = data.get(1).getText() -> "RIX"
-        //Assertions.equals(FROM_AIRPORT, fromAirport, "Error message");
+        Assertions.assertEquals(passenger.getFirstName(), infoPage.getPassengerName(),"Wrong name!");
+        Assertions.assertEquals(FROM_AIRPORT, infoPage.getFirstFromAirport(), "Error!");
+        Assertions.assertEquals(FROM_AIRPORT, infoPage.getSecondFromAirport(), "Error!");
+        Assertions.assertEquals(TO_AIRPORT, infoPage.getFirstToAirport(), "Error");
+        Assertions.assertEquals(TO_AIRPORT, infoPage.getSecondToAirport(), "Error");
+
+        Assertions.assertTrue(infoPage.getPrice().length() > 0, "ERROR");
     }
 }

@@ -71,12 +71,12 @@ public class TicketsTests {
 
         browser.findElement(GET_PRICE_BTN).click();
 
-        airportFrom(selectedAirportFrom);
-        airportTo(selectedAirportTo);
+        //airportFrom(selectedAirportFrom);
+        //airportTo(selectedAirportTo);
 
-        List<WebElement> airports = browser.findElements(AIRPORT_NAME);
-        String selectedAirportFrom = airports.get(1).getText();
-        String selectedAirportTo = airports.get(2).getText();
+        //List<WebElement> airports = browser.findElements(AIRPORT_NAME);
+        //String selectedAirportFrom = airports.get(1).getText();
+        //String selectedAirportTo = airports.get(2).getText();
 
         Assertions.assertEquals(AIRPORT_NAME, selectedAirportFrom, "same airport");
         Assertions.assertEquals(AIRPORT_NAME, selectedAirportTo, "same airport");
