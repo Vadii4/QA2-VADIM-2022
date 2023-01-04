@@ -18,6 +18,8 @@ public class PassengerInfoPage {
 
     private final By RESERVATION_INFO = By.xpath(".//span[@class ='bTxt']");
     private final By RESPONSE_BLOCK = By.id("response");
+
+    private final By BOOK_BTN = By.id("book2");
     private BaseFunc baseFunc;
 
     public PassengerInfoPage(BaseFunc baseFunc) {
@@ -57,10 +59,13 @@ public class PassengerInfoPage {
         String name = baseFunc.findElements(RESERVATION_INFO).get(2).getText();
         return name.substring(0,name.length() - 1);
     }
-    public String getPrice(){
+    public String getPrice() {
         String text = baseFunc.findElement(RESPONSE_BLOCK).getText();
-        return StringUtils.substringBetween(text, "FOR", "EUR");
-
-
+        return StringUtils.substringBetween(text, "for ", " EUR");
     }
+
+    public void book() {
+        baseFunc.click(BOOK_BTN);
+    }
+
 }

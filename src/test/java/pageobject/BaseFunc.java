@@ -48,7 +48,9 @@ public class BaseFunc {
         wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
 
     }
-
+    public void click(WebElement we) {
+        wait.until(ExpectedConditions.elementToBeClickable(we)).click();
+    }
     public void type(By locator, String text) {
         WebElement input = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         input.clear();
@@ -69,5 +71,8 @@ public class BaseFunc {
     public void waitForElementsCountToBe(By locator, int count) {
         wait.until(ExpectedConditions.numberOfElementsToBe(locator, count));
 
+    }
+    public void waitForMinElementsAmount(By locator, int minCount) {
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(locator, minCount));
     }
 }
