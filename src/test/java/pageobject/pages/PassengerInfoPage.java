@@ -3,6 +3,7 @@ package pageobject.pages;
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
 import pageobject.BaseFunc;
+import pageobject.model.FlightInfo;
 import pageobject.model.Passenger;
 
 public class PassengerInfoPage {
@@ -27,14 +28,14 @@ public class PassengerInfoPage {
     }
 
     //metod kotorij zapolnjaet polja
-    public void fillInPassengerInfo(Passenger passenger) {
-        baseFunc.type(FIRST_NAME, passenger.getFirstName());
-        baseFunc.type(LAST_NAME, passenger.getLastName());
-        baseFunc.type(DISCOUNT, passenger.getDiscount());
-        baseFunc.type(ADULTS, passenger.getPeopleCount());
-        baseFunc.type(CHILDREN, passenger.getChildCount());
-        baseFunc.type(BAG, passenger.getBagCount());
-        baseFunc.selectByText(FLIGHT, passenger.getDate());
+    public void fillInPassengerInfo(FlightInfo info) {
+        baseFunc.type(FIRST_NAME, info.getPassenger().getFirstName());
+        baseFunc.type(LAST_NAME, info.getPassenger().getLastName());
+        baseFunc.type(DISCOUNT, info.getDiscount());
+        baseFunc.type(ADULTS, info.getAdultsCount());
+        baseFunc.type(CHILDREN, info.getKidsCount());
+        baseFunc.type(BAG, info.getBagsCount());
+        baseFunc.selectByText(FLIGHT, info.getFlightDate());
 
         baseFunc.click(GET_PRICE_BTN);
         //posle ozhidanija vvodim sjuda

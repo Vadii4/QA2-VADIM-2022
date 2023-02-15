@@ -5,8 +5,8 @@ Feature: Weather forecast
     When we are requesting weather forecast
 
     Then coordinates are:
-      | lat | 39.31 |
-      | lon | -74.5 |
+      | latitude  | 39.31 |
+      | longitude | -74.5 |
 
     And timezone information is:
       | timezone | America/New_York |
@@ -38,19 +38,19 @@ Feature: Weather forecast
       | precipitation | 0          |
 
     And hourly weather data is:
-      | time         | 1646316000 |
-      | temperature     | 281.94     |
-      | feels like | 278.49     |
-      | pressure   | 1014       |
-      | humidity   | 67         |
-      | dew_point  | 276.16     |
-      | uvi        | 1.49       |
-      | clouds     | 52         |
-      | visibility | 10000      |
-      | wind speed | 7.16       |
-      | wind deg   | 313        |
-      | wind gust  | 10.71      |
-      | pop        | 0.03       |
+      | time        | 1646316000 |
+      | temperature | 281.94     |
+      | feels like  | 278.49     |
+      | pressure    | 1014       |
+      | humidity    | 67         |
+      | dew_point   | 276.16     |
+      | uvi         | 1.49       |
+      | clouds      | 52         |
+      | visibility  | 10000      |
+      | wind speed  | 7.16       |
+      | wind deg    | 313        |
+      | wind gust   | 10.71      |
+      | pop         | 0.03       |
     And hourly weather description is:
       | id          | 803           |
       | main        | Clouds        |
@@ -82,10 +82,10 @@ Feature: Weather forecast
       | evening | 277.99 |
       | morning | 280.92 |
     And daily weather feels like temperature is:
-    |day|277.83|
-    |night|264.72|
-    |evening|273.35|
-    |morning|277.66|
+      | day     | 277.83 |
+      | night   | 264.72 |
+      | evening | 273.35 |
+      | morning | 277.66 |
     And daily weather description is:
       | id          | 500        |
       | main        | Rain       |
@@ -100,8 +100,8 @@ Feature: Weather forecast
       | end         | 1646380800                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
       | description | ...SMALL CRAFT ADVISORY REMAINS IN EFFECT FROM 5 PM THISFTERNOON TO 3 AM EST FRIDAY...WHAT...North winds 15 to 20 kt with gusts up to 25 kt and seas3 to 5 ft expected.WHERE...Coastal waters from Little Egg Inlet to Great EggInlet NJ out 20 nm, Coastal waters from Great Egg Inlet toCape May NJ out 20 nm and Coastal waters from Manasquan Inletto Little Egg Inlet NJ out 20 nm.WHEN...From 5 PM this afternoon to 3 AM EST Friday.IMPACTS...Conditions will be hazardous to small craft. |
     And tags for an alert Nr. 1 are:
-      | Sunny       |
-      | Clouds      |
+      | Sunny  |
+      | Clouds |
 #    Then latitude is 39.31
 #    And longitude is -74.1
 #    And timezone is "America/New_York"

@@ -7,6 +7,8 @@ import java.util.List;
 public class Day {
     private long dt;
     private long sunrise;
+    private long sunset;
+
     private long moonrise;
     private long moonset;
     @JsonProperty ("moon_phase")
@@ -47,8 +49,17 @@ public class Day {
         return sunrise;
     }
 
+
     public void setSunrise(long sunrise) {
         this.sunrise = sunrise;
+    }
+
+    public long getSunset() {
+        return sunset;
+    }
+
+    public void setSunset(long sunset) {
+        this.sunset = sunset;
     }
 
     public long getMoonrise() {
