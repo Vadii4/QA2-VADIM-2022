@@ -10,7 +10,7 @@ Feature: Tickets reservation
       | flight_date | 14-05-2018 |
       | seat        | 27         |
     And passenger info is:
-      | first_name  | Vadim       |
+      | first_name  | random     |
       | last_name   | Testosteron |
 
     And home page opened

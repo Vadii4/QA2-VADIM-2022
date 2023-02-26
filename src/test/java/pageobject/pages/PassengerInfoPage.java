@@ -28,6 +28,7 @@ public class PassengerInfoPage {
     }
 
     //metod kotorij zapolnjaet polja
+
     public void fillInPassengerInfo(FlightInfo info) {
         baseFunc.type(FIRST_NAME, info.getPassenger().getFirstName());
         baseFunc.type(LAST_NAME, info.getPassenger().getLastName());
@@ -55,7 +56,6 @@ public class PassengerInfoPage {
     public String getSecondFromAirport() {
         return baseFunc.findElements(RESERVATION_INFO).get(3).getText();
     }
-
     public String getPassengerName() {
         String name = baseFunc.findElements(RESERVATION_INFO).get(2).getText();
         return name.substring(0,name.length() - 1);
