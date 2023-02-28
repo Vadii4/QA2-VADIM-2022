@@ -68,8 +68,8 @@ public class TicketsStepDefs {
         infoPage.getPrice();
     }
     @Then("passenger name and and airports appears")
-            public void check_passenger_name_and_airports() {
-            Assertions.assertEquals(flightInfo.getPassenger().getFirstName(), infoPage.getPassengerName(), "Wrong name!");
+           public void check_passenger_name_and_airports() {
+           Assertions.assertEquals(flightInfo.getPassenger().getFirstName(), infoPage.getPassengerName(), "Wrong name!");
             Assertions.assertEquals(flightInfo.getDeparture(), infoPage.getFirstFromAirport(), "Error!");
             Assertions.assertEquals(flightInfo.getDeparture(), infoPage.getSecondFromAirport(), "Error!");
             Assertions.assertEquals(flightInfo.getDestination(), infoPage.getFirstToAirport(), "Error");
@@ -124,7 +124,6 @@ public class TicketsStepDefs {
     }
     @Then("all reservation data is correct")
     public void check_reservation_data() {
-        //reservationFromApi is used here for assertions
 
     }
 }
